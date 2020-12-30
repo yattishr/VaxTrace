@@ -1,0 +1,57 @@
+type VaccineHistory @model @auth(rules: [{allow: public}]) @key(name: "byVaccine", fields: ["vaccineID"]) {
+  id: ID!
+  vaccineName: String
+  dateAdministered: String
+  medicalRepName: String
+  vaccineFlag: Boolean
+  vaccineID: ID!
+}
+
+type Vaccine @model @auth(rules: [{allow: public}]) @key(name: "byInfant", fields: ["infantID"]) {
+  id: ID!
+  vaccineName: String
+  vaccineDosage: String
+  vaccineFrequecy: String
+  infantID: ID!
+  VaccineHistories: [VaccineHistory] @connection(keyName: "byVaccine", fields: ["id"])
+}
+
+type Infant @model @auth(rules: [{allow: public}]) @key(name: "byParent", fields: ["parentID"]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  dateOfBirth: String
+  gender: String
+  parentID: ID!
+  Vaccines: [Vaccine] @connection(keyName: "byInfant", fields: ["id"])
+}
+
+type Parent @model @auth(rules: [{allow: public}]) @key(name: "byMedicalRep", fields: ["medicalrepID"]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  idNumber: String
+  dateOfBirtth: String
+  contactNumber: String
+  emailAddress: String
+  physicalAddress: String
+  titleField: String
+  noOfInfants: Int
+  Infants: [Infant] @connection(keyName: "byParent", fields: ["id"])
+  medicalrepID: ID!
+}
+
+type MedicalRep @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  practiseNumber: String
+  practiseName: String
+  idNumber: String
+  dateOfBirth: String
+  physicalAddress: String
+  contactNumber: String
+  emailAddress: String
+  titleField: String
+  Parents: [Parent] @connection(keyName: "byMedicalRep", fields: ["id"])
+}

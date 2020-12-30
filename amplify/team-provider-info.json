@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vaxtrace-staging-92311-authRole",
+      "UnauthRoleArn": "arn:aws:iam::312215637679:role/amplify-vaxtrace-staging-92311-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::312215637679:role/amplify-vaxtrace-staging-92311-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-vaxtrace-staging-92311-deployment",
+      "UnauthRoleName": "amplify-vaxtrace-staging-92311-unauthRole",
+      "StackName": "amplify-vaxtrace-staging-92311",
+      "StackId": "arn:aws:cloudformation:us-east-1:312215637679:stack/amplify-vaxtrace-staging-92311/a32fa4d0-4a80-11eb-89f8-0e2470ba0d5b",
+      "AmplifyAppId": "d2xxaq5rry1a9y"
+    },
+    "categories": {
+      "auth": {
+        "VaxTrace": {}
+      }
+    }
+  }
+}
