@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.auth-signout-btn {
+  width: 20px;
+}
