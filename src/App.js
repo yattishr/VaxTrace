@@ -19,6 +19,7 @@ import logo from './undraw_doctor.png';
 import Parent from './components/dashboard/parent/parent';
 import Infant from './components/dashboard/infant/infant';
 import Vaccine from './components/dashboard/vaccine/vaccine';
+import menuPage from './pages/menuPage';
 
 
 Amplify.configure(awsconfig);
@@ -38,26 +39,25 @@ function App() {
             </Navbar.Text>
           </Navbar.Collapse>
       </Navbar>
-      
-      
+            
       <Container>
-        <Row className="justify-content-md-center">
-          <h1>VaxTrace</h1>
-        </Row>
-
-        <Row className="justify-content-md-center">
-          <img src={logo} alt="Logo" style={{ width: 500, display: 'block', margin: 'auto' }} />
-        </Row>        
+          <Row className="justify-content-md-center">
+            <h1>VaxTrace</h1>
+          </Row>
+          <Row className="justify-content-md-center">
+            <img src={logo} alt="Logo" style={{ width: 500, display: 'block', margin: 'auto' }} />
+          </Row>        
+                  
+        <Router>
+          <Row className="justify-content-md-center">          
+            <Link to="/parent" className="btn btn-warning my-5">Get Started</Link>
+          </Row>
+          <Route exact path="/parent" component={ Parent } />
+          <Route exact path="/infant" component={ Infant } />
+          <Route exact path="/vaccine" component={ Vaccine } />
+          <Route exact path="/" component={ menuPage } />
+        </Router>
       </Container>
-        
-      <Router>
-        <Row className="justify-content-md-center">          
-          <Link to="/parent" className="btn btn-warning my-5">Get Started</Link>
-        </Row>
-        <Route exact path="/parent" component={ Parent } />
-        <Route exact path="/infant" component={ Infant } />
-        <Route exact path="/vaccine" component={ Vaccine } />
-      </Router>
 
     </div>
   );

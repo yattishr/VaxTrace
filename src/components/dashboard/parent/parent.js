@@ -47,39 +47,16 @@ const listParentRecords = `query MyQuery {
 
 export default class parent extends Component {
 
-
-    addQuery = async () => {
-        const todoDetails = {
-          name: 'Party tonight!',
-          description: 'Amplify CLI rocks!'
-        };
-      const newParentRecord = await API.graphql(graphqlOperation(addParent));
-      console.log(JSON.stringify(newParentRecord));
-      };
-
     render() {
         
         return (
             <div>
-                <h1 className="display-4 my-3"><span className="text-light">Parent Dashboard</span></h1>
-                <div>
-                    <h4>Parent Listing</h4>
-                </div>
-
-                <ParentList />
-
-                <Row className="justify-content-md-center">
-                    <Col>
-                        <Button variant="success" onClick={this.listQuery}>
-                            List Parents
-                        </Button>                    
-                    </Col>
-                    <Col>
-                        <Button variant="warning" onClick={this.addQuery}>
-                            Add Parent
-                        </Button>                    
-                    </Col>                    
-                </Row>
+                <Container>
+                    <h1 className="display-4 my-3"><span className="text-light">Parent Dashboard</span></h1>
+                    <div>
+                        <ParentList />
+                    </div>                    
+                </Container>
             </div>
         )
     }
