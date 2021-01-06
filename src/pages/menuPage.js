@@ -19,7 +19,7 @@ export default class menuPage extends Component {
         return (
             <div>
                 <Container>
-                    <Row className="justify-content-md-center">
+                    <Row className="justify-content-md-center my-3">
                         <h1>VaxTrace - Menu Page</h1>
                     </Row>
                     <Row className="justify-content-md-center">
@@ -28,9 +28,10 @@ export default class menuPage extends Component {
                             <img src={parentsbabyLogo} alt="Logo" style={{ width: 150, height: 150, display: 'block', margin: 'auto' }} />
                             <Card.Body>
                                 <Card.Text>
-                                <h3>Add Parent</h3>
-                                </Card.Text>
+                                <h3>Parents</h3>
+                                </Card.Text>                                
                             </Card.Body>
+                            <Link to="/parent" className="btn btn-primary">Add Parent</Link> 
                             </Card>                        
                         </Col>
 
@@ -39,9 +40,10 @@ export default class menuPage extends Component {
                             <img src={babyLogo} alt="Logo" style={{ width: 150, height: 150, display: 'block', margin: 'auto' }} />
                             <Card.Body>
                                 <Card.Text>
-                                <h3>Vaccinate Infant</h3>
-                                </Card.Text>
+                                <h3>Infants</h3>
+                                </Card.Text>                                
                             </Card.Body>
+                            <Link to="/" className="btn btn-primary">Vaccinate Infant</Link>
                             </Card>                        
                         </Col>                  
 
@@ -50,9 +52,10 @@ export default class menuPage extends Component {
                             <img src={stetoscopeLogo} alt="Logo" style={{ width: 150, height: 150, display: 'block', margin: 'auto' }} />
                             <Card.Body>
                                 <Card.Text>
-                                    <h3>Vaccinate Log</h3>
+                                    <h3>History</h3>
                                 </Card.Text>
                             </Card.Body>
+                            <Link to="/" className="btn btn-primary">Vaccinate Log</Link>
                             </Card>                        
                         </Col>                        
                         

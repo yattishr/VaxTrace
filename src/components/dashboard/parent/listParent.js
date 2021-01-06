@@ -135,6 +135,9 @@ class ParentList extends Component {
                                 Add Parent
                             </Button>                    
                         </Col>                    
+                        <Col>
+                            <Link to="/" className="btn btn-warning">Back</Link> 
+                        </Col>                        
                     </Row>
 
                 </Container>

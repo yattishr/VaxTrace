@@ -41,17 +41,8 @@ function App() {
       </Navbar>
             
       <Container>
-          <Row className="justify-content-md-center">
-            <h1>VaxTrace</h1>
-          </Row>
-          <Row className="justify-content-md-center">
-            <img src={logo} alt="Logo" style={{ width: 500, display: 'block', margin: 'auto' }} />
-          </Row>        
-                  
+        <menuPage />                        
         <Router>
-          <Row className="justify-content-md-center">          
-            <Link to="/parent" className="btn btn-warning my-5">Get Started</Link>
-          </Row>
           <Route exact path="/parent" component={ Parent } />
           <Route exact path="/infant" component={ Infant } />
           <Route exact path="/vaccine" component={ Vaccine } />
