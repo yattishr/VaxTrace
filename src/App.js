@@ -19,6 +19,8 @@ import logo from './undraw_doctor.png';
 import Parent from './components/dashboard/parent/parent';
 import Infant from './components/dashboard/infant/infant';
 import Vaccine from './components/dashboard/vaccine/vaccine';
+import AddParent from './components/dashboard/parent/addParent';
+import ListParent from './components/dashboard/parent/listParent';
 import menuPage from './pages/menuPage';
 
 
@@ -27,6 +29,7 @@ Amplify.configure(awsconfig);
 function App() {
 
   return (
+    
     <div className="App">
       
       <Navbar bg="primary" variant="dark">
@@ -44,6 +47,8 @@ function App() {
         <menuPage />                        
         <Router>
           <Route exact path="/parent" component={ Parent } />
+          <Route exact path="/parent/addparent" component={ AddParent } />
+          <Route exact path="/parent/listparent" component={ ListParent } />
           <Route exact path="/infant" component={ Infant } />
           <Route exact path="/vaccine" component={ Vaccine } />
           <Route exact path="/" component={ menuPage } />
@@ -52,6 +57,7 @@ function App() {
 
     </div>
   );
+
 }
 
 export default withAuthenticator(App);

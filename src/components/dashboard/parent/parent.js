@@ -13,38 +13,6 @@ import { API, graphqlOperation } from 'aws-amplify';
 // import Parent list component
 import ParentList from './listParent';
 
-const listParentRecords = `query MyQuery {
-    listParents {
-      items {
-        firstName
-        lastName
-        titleField
-        contactNumber
-        noOfInfants
-      }
-    }
-  }`;
-
-  const addParent = `mutation addNewParent {
-    createParent(input: 
-      {
-        medicalrepID: "4", 
-        firstName: "daffy", 
-        lastName: "duck", 
-        noOfInfants: 1, 
-        emailAddress: "daffyduck@gmail.com", 
-        contactNumber: "0742532694", 
-        titleField: "Mr", 
-        dateOfBirtth: "15-Jul-1982", 
-        idNumber: "8007155160080", 
-        physicalAddress: "14 Valentines Road, Disneyland"
-      }
-    ) {
-      id
-    }
-  }
-  `;
-
 export default class parent extends Component {
 
     render() {
@@ -54,7 +22,19 @@ export default class parent extends Component {
                 <Container>
                     <h1 className="display-4 my-3"><span className="text-light">Parent Dashboard</span></h1>
                     <div>
-                        <ParentList />
+                    <Row className="justify-content-md-center my-5">
+                        <Col>
+                          <Link to="/parent/addparent" className="btn btn-warning">Add Parent</Link> 
+                        </Col>
+
+                        <Col>
+                            <Link to="/parent/listparent" className="btn btn-warning">List Parent</Link> 
+                        </Col>                            
+
+                        <Col>
+                            <Link to="/" className="btn btn-warning">Back</Link> 
+                        </Col>                        
+                    </Row>
                     </div>                    
                 </Container>
             </div>

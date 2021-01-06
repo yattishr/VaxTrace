@@ -71,7 +71,6 @@ const listParentRecords = `query MyQuery {
   }
   `;
 
-
 class ParentList extends Component {
 
     state = { parents: [] }
@@ -96,6 +95,12 @@ class ParentList extends Component {
       const newParentRecord = await API.graphql(graphqlOperation(addParent));
       console.log(JSON.stringify(newParentRecord));
       };
+
+
+    // list our current parents when the componentloads
+    async componentDidMount()  {
+      this.listQuery();
+    }
 
     render() {
         return(
@@ -123,22 +128,6 @@ class ParentList extends Component {
                             )
                         })
                     }
-
-                    <Row className="justify-content-md-center my-5">
-                        <Col>
-                            <Button variant="success" onClick={this.listQuery}>
-                                List Parents
-                            </Button>                    
-                        </Col>
-                        <Col>
-                            <Button variant="warning" onClick={this.addQuery}>
-                                Add Parent
-                            </Button>                    
-                        </Col>                    
-                        <Col>
-                            <Link to="/" className="btn btn-warning">Back</Link> 
-                        </Col>                        
-                    </Row>
 
                 </Container>
             </Fragment> 
