@@ -77,6 +77,15 @@ const listParentRecords = `query MyQuery {
   `;
 
 
+function handleParamChange(e) {
+  const param = e.target.name
+  const value = e.target.value
+  // setParams(prevParams => {
+  //   return { ...prevParams, [param]: value }
+  // })
+}  
+
+
 export default class addParent extends Component {
 
     state = { 
