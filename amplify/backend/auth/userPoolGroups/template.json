@@ -1,0 +1,68 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "authVaxTraceUserPoolId": {
+            "Type": "String",
+            "Default": "authVaxTraceUserPoolId"
+        },
+        
+        "authVaxTraceAppClientID": {
+            "Type": "String",
+            "Default": "authVaxTraceAppClientID"
+        },
+        "authVaxTraceAppClientIDWeb": {
+            "Type": "String",
+            "Default": "authVaxTraceAppClientIDWeb"
+        },
+        "AuthRoleArn": {
+            "Type": "String"
+        },
+        "UnauthRoleArn": {
+            "Type": "String"
+        },
+        "env": {
+            "Type": "String"
+        }
+    },
+    "Conditions": {
+        "ShouldNotCreateEnvResources": {
+            "Fn::Equals": [
+                {
+                    "Ref": "env"
+                },
+                "NONE"
+            ]
+        }
+    },
+    "Resources": {
+    
+        "ParentsGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "Parents",
+              "Precedence" : 1,
+              
+              "UserPoolId" : {
+                "Ref": "authVaxTraceUserPoolId"
+              } 
+            }
+        },
+        
+    
+        "MedicalPersonnelGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "MedicalPersonnel",
+              "Precedence" : 2,
+              
+              "UserPoolId" : {
+                "Ref": "authVaxTraceUserPoolId"
+              } 
+            }
+        },
+        
+    
+    
+    },
+    
+}

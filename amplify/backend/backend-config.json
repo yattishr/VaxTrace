@@ -3,8 +3,33 @@
     "VaxTrace": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "VaxTracePostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
       "customAuth": false
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "VaxTrace",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID"
+          ]
+        }
+      ]
     }
   },
   "api": {
@@ -16,8 +41,8 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7,
-              "description": "VaxTrace Auth key"
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
             }
           },
           "additionalAuthenticationProviders": [
@@ -27,6 +52,13 @@
           ]
         }
       }
+    }
+  },
+  "function": {
+    "VaxTracePostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   }
 }

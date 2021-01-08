@@ -1,46 +1,39 @@
 {
-    "identityPoolName": "testAuthIdentityPool",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "vaxtracd9598bd",
+    "resourceNameTruncated": "vaxtraee0b0145",
     "userPoolName": "VaxTrace",
     "autoVerifiedAttributes": [
-        "phone_number"
+        "email"
     ],
     "mfaConfiguration": "OFF",
     "mfaTypes": [
         "SMS Text Message"
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
-    "smsVerificationMessage": "Forgot password code: {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [
-        "Requires Lowercase",
-        "Requires Numbers",
-        "Requires Symbols",
-        "Requires Uppercase"
-    ],
+    "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "phone_number",
         "email",
-        "name",
-        "preferred_username"
+        "name"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-        "email"
+        "given_name",
+        "email",
+        "name"
     ],
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "VaxTracd9598bd_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
-    "sharedId": "cd9598bd",
+    "userpoolClientLambdaRole": "VaxTraee0b0145_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "sharedId": "ee0b0145",
     "resourceName": "VaxTrace",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -55,15 +48,33 @@
     },
     "serviceName": "Cognito",
     "usernameAttributes": [
-        "email",
-        "phone_number"
+        "email"
     ],
     "useDefault": "manual",
-    "userPoolGroups": false,
-    "userPoolGroupList": [],
+    "userPoolGroups": true,
+    "userPoolGroupList": [
+        "Parents",
+        "MedicalPersonnel"
+    ],
     "adminQueries": false,
-    "thirdPartyAuth": false,
-    "authProviders": [],
     "usernameCaseSensitive": false,
-    "dependsOn": []
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "VaxTracePostConfirmation",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ],
+    "triggers": "{\n  \"PostConfirmation\": [\n    \"add-to-group\"\n  ]\n}",
+    "hostedUI": false,
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [
+        "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
+    ]
 }

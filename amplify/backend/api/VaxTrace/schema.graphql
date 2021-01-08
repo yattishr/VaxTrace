@@ -1,4 +1,4 @@
-type VaccineHistory @model @auth(rules: [{allow: public}]) @key(name: "byVaccine", fields: ["vaccineID"]) {
+type VaccineHistory @model @key(name: "byVaccine", fields: ["vaccineID"]) @auth(rules: [{allow: public}]) {
   id: ID!
   vaccineName: String
   dateAdministered: String
@@ -7,7 +7,7 @@ type VaccineHistory @model @auth(rules: [{allow: public}]) @key(name: "byVaccine
   vaccineID: ID!
 }
 
-type Vaccine @model @auth(rules: [{allow: public}]) @key(name: "byInfant", fields: ["infantID"]) {
+type Vaccine @model @key(name: "byInfant", fields: ["infantID"]) @auth(rules: [{allow: public}]) {
   id: ID!
   vaccineName: String
   vaccineDosage: String
@@ -16,7 +16,7 @@ type Vaccine @model @auth(rules: [{allow: public}]) @key(name: "byInfant", field
   VaccineHistories: [VaccineHistory] @connection(keyName: "byVaccine", fields: ["id"])
 }
 
-type Infant @model @auth(rules: [{allow: public}]) @key(name: "byParent", fields: ["parentID"]) {
+type Infant @model @key(name: "byParent", fields: ["parentID"]) @auth(rules: [{allow: public}]) {
   id: ID!
   firstName: String
   lastName: String
@@ -26,7 +26,7 @@ type Infant @model @auth(rules: [{allow: public}]) @key(name: "byParent", fields
   Vaccines: [Vaccine] @connection(keyName: "byInfant", fields: ["id"])
 }
 
-type Parent @model @auth(rules: [{allow: public}]) @key(name: "byMedicalRep", fields: ["medicalrepID"]) {
+type Parent @model @key(name: "byMedicalRep", fields: ["medicalrepID"]) @auth(rules: [{allow: public}]) {
   id: ID!
   firstName: String
   lastName: String
@@ -55,3 +55,4 @@ type MedicalRep @model @auth(rules: [{allow: public}]) {
   titleField: String
   Parents: [Parent] @connection(keyName: "byMedicalRep", fields: ["id"])
 }
+ 
