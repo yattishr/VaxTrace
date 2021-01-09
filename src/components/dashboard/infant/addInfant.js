@@ -10,11 +10,11 @@ import Col from 'react-bootstrap/Col';
 // import AWS components
 import { API, graphqlOperation } from 'aws-amplify';
 
-export default class vaccine extends Component {
+export default class addInfant extends Component {
     render() {
         return (
             <div>
-                <h1 className="display-4 my-3">Vaccine Dashboard</h1>
+                <h1 className="display-4 my-3">Add Infant</h1>
                 <Container>
                 <Col>
                         <Link to="/" className="btn btn-warning">Back</Link> 

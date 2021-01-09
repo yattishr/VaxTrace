@@ -122,7 +122,15 @@ class ParentList extends Component {
                                             <li className="list-group-item">Number of Infants: {parent.noOfInfants}</li>
                                         </ul>
                                         <hr />
-                                        <Link to="/" className="btn btn-warning">Add Infant</Link>
+                                        
+                                        <Row>
+                                          <Col>
+                                            <Link to="/infant/addinfant" className="btn btn-warning">Add Infant</Link>
+                                          </Col>
+                                          <Col>
+                                            <Link to="/" className="btn btn-warning">Back</Link>
+                                          </Col>                                          
+                                        </Row>
                                     </div>
                                 </Container>
                             )

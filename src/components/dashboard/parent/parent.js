@@ -32,6 +32,10 @@ export default class parent extends Component {
                         </Col>                            
 
                         <Col>
+                            <Link to="/infant/addinfant" className="btn btn-warning">Add Infant</Link> 
+                        </Col>                        
+
+                        <Col>
                             <Link to="/" className="btn btn-warning">Back</Link> 
                         </Col>                        
                     </Row>

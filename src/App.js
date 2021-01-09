@@ -21,7 +21,9 @@ import Infant from './components/dashboard/infant/infant';
 import Vaccine from './components/dashboard/vaccine/vaccine';
 import AddParent from './components/dashboard/parent/addParent';
 import ListParent from './components/dashboard/parent/listParent';
-import menuPage from './pages/menuPage';
+import AddInfant from './components/dashboard/infant/addInfant';
+
+import MenuPage from './pages/menuPage';
 
 
 Amplify.configure(awsconfig);
@@ -50,8 +52,9 @@ function App() {
           <Route exact path="/parent/addparent" component={ AddParent } />
           <Route exact path="/parent/listparent" component={ ListParent } />
           <Route exact path="/infant" component={ Infant } />
+          <Route exact path="/infant/addinfant" component={ AddInfant } />
           <Route exact path="/vaccine" component={ Vaccine } />
-          <Route exact path="/" component={ menuPage } />
+          <Route exact path="/" component={ MenuPage } />
         </Router>
       </Container>
 

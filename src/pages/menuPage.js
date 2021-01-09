@@ -14,7 +14,7 @@ import stetoscopeLogo from '../stethoscope.png';
 import babyLogo from '../baby.png';
 import parentsbabyLogo from '../parents_baby.png';
 
-export default class menuPage extends Component {
+export default class MenuPage extends Component {
     render() {
         return (
             <div>
@@ -31,7 +31,7 @@ export default class menuPage extends Component {
                                 <h3>Parents</h3>
                                 </Card.Text>                                
                             </Card.Body>
-                            <Link to="/parent" className="btn btn-primary">Add Parent</Link> 
+                            <Link to="/parent" className="btn btn-primary">Parent Dashboard</Link> 
                             </Card>                        
                         </Col>
 
@@ -43,7 +43,7 @@ export default class menuPage extends Component {
                                 <h3>Infants</h3>
                                 </Card.Text>                                
                             </Card.Body>
-                            <Link to="/" className="btn btn-primary">Vaccinate Infant</Link>
+                            <Link to="/vaccine" className="btn btn-primary">Vaccine Dashboard</Link>
                             </Card>                        
                         </Col>                  
 

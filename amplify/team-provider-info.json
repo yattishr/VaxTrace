@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "VaxTrace": {}
+        "VaxTrace": {},
+        "userPoolGroups": {}
       },
       "function": {
         "VaxTracePostConfirmation": {

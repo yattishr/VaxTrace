@@ -89,21 +89,46 @@ function handleParamChange(e) {
 export default class addParent extends Component {
 
     state = { 
-        firstname: '',
-        lastname: '',
-        noOfInfants: '', 
-        emailAddress: '', 
-        contactNumber: '', 
-        titleField: '', 
-        dateOfBirtth: '', 
-        idNumber: '', 
-        physicalAddress: '',   
-        parents: []     
+      formTitleField: '',
+      formFirstName: '',
+      formLastName: '',
+      formEmail: '',
+      formContactNumber: '',
+      formNoInfants: '',
+      formIdentitynum: '',
+      formAddress1: '',
+      formDateBirth: '',
+      parents: []     
     }
 
-    onChange = e => {
-      this.setState({ [e.target.name]: e.target.value })
+    handleChange = name => event => {
+      this.setState({
+        [name]: event.target.value,
+      });
+      console.log("First name: " + this.state.formFirstName + " Last name: " + this.state.formLastName)
+    };
+
+
+    handleSubmit = (e) => {
+      var parentDetails = {
+        firstname: this.state.formFirstName,
+        lastname: this.state.formLastName,
+        title: this.state.formTitleField,
+        email: this.state.formEmail,
+        contact: this.state.formContactNumber,
+        noinfants: this.state.formNoInfants,
+        identitynum: this.state.formIdentitynum,
+        physicaladdress: this.state.formAddress1,
+        dateofbirth: this.state.formDateBirth
+      }
+      console.log("Parent Details: " + JSON.stringify(parentDetails))
+      API.graphql(graphqlOperation(createParent, {input: parentDetails} ));
+      console.log('Parent details added successfully!')
     }
+
+    // onChange = e => {
+    //   this.setState({ [e.target.name]: e.target.value })
+    // }
 
     createParent = async () => {
       const {firstname, lastname, noOfInfants, emailAddress, 
@@ -115,15 +140,15 @@ export default class addParent extends Component {
             contactNumber, titleField, dateOfBirtth, idNumber, physicalAddress}
           const parents = [...this.state.parents, parent]
           this.setState({ parents, 
-            firstname: '',
-            lastname: '',
-            noOfInfants: '', 
-            emailAddress: '', 
-            contactNumber: '', 
-            titleField: '', 
-            dateOfBirtth: '', 
-            idNumber: '', 
-            physicalAddress: '',          
+            formTitleField: '',
+            formFirstName: '',
+            formLastName: '',
+            formEmail: '',
+            formContactNumber: '',
+            formNoInfants: '',
+            formIdentitynum: '',
+            formAddress1: '',
+            formDateBirth: ''
           })
           await API.graphql(graphqlOperation(createParent, {input: parent} ))
           console.log('parent successfully created!')
@@ -153,7 +178,7 @@ export default class addParent extends Component {
                       <Col>
                         <Form.Group controlId="exampleForm.SelectCustom">
                           <Form.Label>Title</Form.Label>
-                          <Form.Control as="select" custom>
+                          <Form.Control as="select" name="formTitleField" custom>
                             <option>Mr</option>
                             <option>Mrs</option>
                             <option>Ms</option>
@@ -165,14 +190,14 @@ export default class addParent extends Component {
                       <Col>
                         <Form.Group controlId="formBasicFirstname">
                         <Form.Label>First name</Form.Label>
-                        <Form.Control type="text" placeholder="First name" />
+                        <Form.Control type="text" placeholder="First name" onChange={this.handleChange('formFirstName')} name="formFirstName" />
                         </Form.Group>                       
                       </Col>
 
                       <Col>
                         <Form.Group controlId="formBasicLasttname">
                         <Form.Label>Last name</Form.Label>
-                        <Form.Control type="text" placeholder="Last name" />
+                        <Form.Control type="text" placeholder="Last name" onChange={this.handleChange('formLastName')} name="formLastName" />
                         </Form.Group>                      
                       </Col>                      
                     </Form.Row>
@@ -181,7 +206,7 @@ export default class addParent extends Component {
                       <Col>
                         <Form.Group controlId="formBasicEmail">
                           <Form.Label>Email address</Form.Label>
-                          <Form.Control type="email" placeholder="Enter email" />
+                          <Form.Control type="email" placeholder="Enter email" onChange={this.handleChange('formEmail')} name="formEmail" />
                           <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                           </Form.Text>
@@ -191,42 +216,53 @@ export default class addParent extends Component {
                       <Col>
                         <Form.Group controlId="formBasicContactnumber">
                           <Form.Label>Contact number</Form.Label>
-                          <Form.Control type="text" placeholder="+99 123 456 7890" />
+                          <Form.Control type="text" placeholder="+99 123 456 7890" onChange={this.handleChange('formContactNumber')} name="formContactNumber" />
                         </Form.Group>                      
                       </Col>
 
                       <Col>
                         <Form.Group controlId="formBasicFirstname">
                           <Form.Label>Number of Infants</Form.Label>
-                          <Form.Control type="number" placeholder="Number of Infants" />
+                          <Form.Control type="number" placeholder="Number of Infants" onChange={this.handleChange('formNoInfants')} name="formNoInfants" />
                         </Form.Group>                      
                       </Col>
                     </Form.Row>
 
-                    <Form.Group controlId="formBasicPassword">
-                      <Form.Label>National Identity / Passport Number</Form.Label>
-                      <Form.Control type="text" placeholder="Identity / Passport Number" />
-                    </Form.Group>
+                    <Form.Row>
+                      <Col>
+                      <Form.Group controlId="formIdentityNum">
+                        <Form.Label>Date of Birth</Form.Label>
+                        <Form.Control type="text" placeholder="12-Nov-2001" onChange={this.handleChange('formDateBirth')} name="formDateBirth" />
+                      </Form.Group>
+                      </Col>
+                      <Col>
+                      <Form.Group controlId="formIdentityNum">
+                        <Form.Label>National Identity / Passport Number</Form.Label>
+                        <Form.Control type="text" placeholder="Identity / Passport Number" onChange={this.handleChange('formIdentitynum')} name="formIdentitynum" />
+                      </Form.Group>
+                      </Col>
+                    </Form.Row>
+
 
                     <Form.Group controlId="formGridAddress1">
                       <Form.Label>Address</Form.Label>
-                      <Form.Control placeholder="1234 Main St" />
+                      <Form.Control placeholder="1234 Main St" onChange={this.handleChange('formAddress1')} name="formAddress1" />
                     </Form.Group>                    
 
                     <Form.Group controlId="formGridAddress2">
                       <Form.Label>Address 2</Form.Label>
-                      <Form.Control placeholder="Apartment, studio, or floor" />
+                      <Form.Control placeholder="Apartment, studio, or floor" onChange={this.handleChange('formAddress2')} name="formAddress2"  />
                     </Form.Group>                    
 
                     <Form.Row>
                       <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>City</Form.Label>
-                        <Form.Control placeholder="New York City"/>
+                        <Form.Control placeholder="New York City" onChange={this.handleChange('formCity')} name="formCity" />
                       </Form.Group>
 
                       <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>State</Form.Label>
-                        <Form.Control as="select" defaultValue="Choose...">
+                        <Form.Control as="select" onChange={this.handleChange('formState')} name="formState"   defaultValue="Choose...">
                         <option>Choose...</option>
                         <option>CA</option>
                         <option>ZA</option>
@@ -237,8 +273,8 @@ export default class addParent extends Component {
 
                       <Form.Group as={Col} controlId="formGridZip">
                         <Form.Label>Zip</Form.Label>
-                        <Form.Control />
-                        </Form.Group>
+                        <Form.Control onChange={this.handleChange('formZip')} name="formZip"/>
+                      </Form.Group>
                     </Form.Row>
 
                     <Form.Group controlId="formBasicCheckbox">
@@ -250,7 +286,7 @@ export default class addParent extends Component {
                         <Link to="/" className="btn btn-warning">Back</Link>  
                       </Col>
                       <Col>
-                      <Button variant="primary" type="submit">
+                      <Button onClick={this.handleSubmit} variant="primary" type="submit">
                         Submit
                       </Button>                      
                       </Col>                      
