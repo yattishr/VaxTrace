@@ -20,7 +20,7 @@ export default class parent extends Component {
         return (
             <div>
                 <Container>
-                    <h1 className="display-4 my-3"><span className="text-light">Parent Dashboard</span></h1>
+                    <h1 className="display-4 my-3"><span className="text-light">Doctors Dashboard</span></h1>
                     <div>
                     <Row className="justify-content-md-center my-5">
                         <Col>

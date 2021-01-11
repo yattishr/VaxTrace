@@ -23,6 +23,18 @@ export default class MenuPage extends Component {
                         <h1>VaxTrace - Menu Page</h1>
                     </Row>
                     <Row className="justify-content-md-center">
+                    <Col>
+                            <Card border="primary" style={{ width: '18rem' }}>
+                            <img src={stetoscopeLogo} alt="Logo" style={{ width: 150, height: 150, display: 'block', margin: 'auto' }} />
+                            <Card.Body>
+                                <Card.Text>
+                                    <h3>Doctors</h3>
+                                </Card.Text>
+                            </Card.Body>
+                            <Link to="/parent" className="btn btn-primary">Doctors Dashboard</Link>
+                            </Card>                        
+                        </Col>
+
                         <Col>
                             <Card border="primary" style={{ width: '18rem' }}>
                             <img src={parentsbabyLogo} alt="Logo" style={{ width: 150, height: 150, display: 'block', margin: 'auto' }} />
@@ -31,7 +43,7 @@ export default class MenuPage extends Component {
                                 <h3>Parents</h3>
                                 </Card.Text>                                
                             </Card.Body>
-                            <Link to="/parent" className="btn btn-primary">Parent Dashboard</Link> 
+                            <Link to="/" className="btn btn-primary">Parent Dashboard</Link> 
                             </Card>                        
                         </Col>
 
@@ -46,19 +58,7 @@ export default class MenuPage extends Component {
                             <Link to="/vaccine" className="btn btn-primary">Vaccine Dashboard</Link>
                             </Card>                        
                         </Col>                  
-
-                        <Col>
-                            <Card border="primary" style={{ width: '18rem' }}>
-                            <img src={stetoscopeLogo} alt="Logo" style={{ width: 150, height: 150, display: 'block', margin: 'auto' }} />
-                            <Card.Body>
-                                <Card.Text>
-                                    <h3>History</h3>
-                                </Card.Text>
-                            </Card.Body>
-                            <Link to="/" className="btn btn-primary">Vaccinate Log</Link>
-                            </Card>                        
-                        </Col>                        
-                        
+                                                
                     </Row>
                 </Container>
             </div>

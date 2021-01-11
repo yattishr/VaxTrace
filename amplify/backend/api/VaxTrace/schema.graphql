@@ -1,3 +1,18 @@
+type ParentTable @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  titleField: String
+  noOfInfants: Int
+  emailAddress: String
+  contactNumber: String
+  idNumber: String
+  dateOfBirtth: String
+  physicalAdress: String
+  infantArray: [AWSJSON]
+  medicalRepId: String
+}
+
 type VaccineHistory @model @key(name: "byVaccine", fields: ["vaccineID"]) @auth(rules: [{allow: public}]) {
   id: ID!
   vaccineName: String
