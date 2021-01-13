@@ -31,7 +31,7 @@ export default class MenuPage extends Component {
                                     <h3>Doctors</h3>
                                 </Card.Text>
                             </Card.Body>
-                            <Link to="/parent" className="btn btn-primary">Doctors Dashboard</Link>
+                            <Link to="/doctor" className="btn btn-primary">Doctors Dashboard</Link>
                             </Card>                        
                         </Col>
 
@@ -43,7 +43,7 @@ export default class MenuPage extends Component {
                                 <h3>Parents</h3>
                                 </Card.Text>                                
                             </Card.Body>
-                            <Link to="/" className="btn btn-primary">Parent Dashboard</Link> 
+                            <Link to="/parent" className="btn btn-primary">Parent Dashboard</Link> 
                             </Card>                        
                         </Col>
 

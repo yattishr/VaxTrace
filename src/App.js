@@ -19,11 +19,14 @@ import logo from './undraw_doctor.png';
 import Parent from './components/dashboard/parent/parent';
 import Infant from './components/dashboard/infant/infant';
 import Vaccine from './components/dashboard/vaccine/vaccine';
-import AddParent from './components/dashboard/parent/addParent';
-import ListParent from './components/dashboard/parent/listParent';
+
+import Doctor from './components/dashboard/doctor/doctor';
+import AddParent from './components/dashboard/doctor/addParent';
+import ListParent from './components/dashboard/doctor/listParent';
 import AddInfant from './components/dashboard/infant/addInfant';
 
 import MenuPage from './pages/menuPage';
+import Redirect from './pages/redirect';
 
 
 Amplify.configure(awsconfig);
@@ -35,7 +38,7 @@ function App() {
     <div className="App">
       
       <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="#home">Welcome to VaxTrace!</Navbar.Brand>
+        <Navbar.Brand href="/">Welcome to VaxTrace!</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
@@ -49,11 +52,13 @@ function App() {
         <menuPage />                        
         <Router>
           <Route exact path="/parent" component={ Parent } />
-          <Route exact path="/parent/addparent" component={ AddParent } />
-          <Route exact path="/parent/listparent" component={ ListParent } />
+          <Route exact path="/doctor" component={ Doctor } />
+          <Route exact path="/doctor/addparent" component={ AddParent } />
+          <Route exact path="/doctor/listparent" component={ ListParent } />
           <Route exact path="/infant" component={ Infant } />
           <Route exact path="/infant/addinfant" component={ AddInfant } />
           <Route exact path="/vaccine" component={ Vaccine } />
+          <Route exact path="/redirect" component={ Redirect } />
           <Route exact path="/" component={ MenuPage } />
         </Router>
       </Container>

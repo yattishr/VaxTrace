@@ -13,22 +13,22 @@ import { API, graphqlOperation } from 'aws-amplify';
 // import Parent list component
 import ParentList from './listParent';
 
-export default class parent extends Component {
+export default class doctor extends Component {
 
     render() {
         
         return (
             <div>
                 <Container>
-                    <h1 className="display-4 my-3"><span className="text-light">Parents Dashboard</span></h1>
+                    <h1 className="display-4 my-3"><span className="text-light">Doctors Dashboard</span></h1>
                     <div>
                     <Row className="justify-content-md-center my-5">
                         <Col>
-                          <Link to="/parent/addparent" className="btn btn-warning">Add Parent</Link> 
+                          <Link to="/doctor/addparent" className="btn btn-warning">Add Parent</Link> 
                         </Col>
 
                         <Col>
-                            <Link to="/parent/listparent" className="btn btn-warning">List Parent</Link> 
+                            <Link to="/doctor/listparent" className="btn btn-warning">List Parent</Link> 
                         </Col>                            
 
                         <Col>
