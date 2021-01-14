@@ -10,19 +10,6 @@ import Col from 'react-bootstrap/Col';
 // import AWS components
 import { API, graphqlOperation } from 'aws-amplify';
 
-
-const listParentRecords = `query MyQuery {
-    listParents {
-      items {
-        firstName
-        lastName
-        titleField
-        contactNumber
-        noOfInfants
-      }
-    }
-  }`;
-
   export const listParents = /* GraphQL */ `
   query ListParents(
     $filter: ModelParentFilterInput
@@ -50,27 +37,6 @@ const listParentRecords = `query MyQuery {
   }
 `;
 
-
-  const addParent = `mutation addNewParent {
-    createParent(input: 
-      {
-        medicalrepID: "4", 
-        firstName: "micket", 
-        lastName: "mouse", 
-        noOfInfants: 1, 
-        emailAddress: "mickeymouse@gmail.com", 
-        contactNumber: "0742532694", 
-        titleField: "Mr", 
-        dateOfBirtth: "18-Aug-1982", 
-        idNumber: "8007155160080", 
-        physicalAddress: "14 Valentines Road, Disneyland"
-      }
-    ) {
-      id
-    }
-  }
-  `;
-
 class ParentList extends Component {
 
     state = { parents: [] }
@@ -86,16 +52,6 @@ class ParentList extends Component {
             console.log('error: ', err)
         }        
     }
-
-    addQuery = async () => {
-        const todoDetails = {
-          name: 'Party tonight!',
-          description: 'Amplify CLI rocks!'
-        };
-      const newParentRecord = await API.graphql(graphqlOperation(addParent));
-      console.log(JSON.stringify(newParentRecord));
-      };
-
 
     // list our current parents when the componentloads
     async componentDidMount()  {

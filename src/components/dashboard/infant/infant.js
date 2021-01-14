@@ -15,7 +15,25 @@ export default class infant extends Component {
         return (
             <div>
                 <h1 className="display-4 my-3">Infant Dashboard</h1>
+            <Container>
+            <Row className="justify-content-md-center my-5">
+                        <Col>
+                            <Link to="/infant/listinfant" className="btn btn-warning">List Infants</Link> 
+                        </Col>                            
+
+                        <Col>
+                            <Link to="/infant/addinfant" className="btn btn-warning">Add Infant</Link> 
+                        </Col>                        
+
+                        <Col>
+                            <Link to="/" className="btn btn-warning">Back</Link> 
+                        </Col>                        
+                    </Row>                
+            </Container>
+
             </div>
+
+
         )
     }
 }
