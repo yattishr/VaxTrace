@@ -17,6 +17,8 @@ export declare class ParentTable {
   readonly physicalAdress?: string;
   readonly infantArray?: (string | null)[];
   readonly medicalRepId?: string;
+  readonly totalPoints?: number;
+  readonly totalPointsAccrued?: number;
   constructor(init: ModelInit<ParentTable>);
   static copyOf(source: ParentTable, mutator: (draft: MutableModel<ParentTable>) => MutableModel<ParentTable> | void): ParentTable;
 }
@@ -51,25 +53,13 @@ export declare class Infant {
   readonly gender?: string;
   readonly parentID: string;
   readonly Vaccines?: (Vaccine | null)[];
+  readonly pointsAccrued?: number;
+  readonly pointsTotal?: number;
+  readonly age?: number;
+  readonly height?: number;
+  readonly weight?: number;
   constructor(init: ModelInit<Infant>);
   static copyOf(source: Infant, mutator: (draft: MutableModel<Infant>) => MutableModel<Infant> | void): Infant;
-}
-
-export declare class Parent {
-  readonly id: string;
-  readonly firstName?: string;
-  readonly lastName?: string;
-  readonly idNumber?: string;
-  readonly dateOfBirtth?: string;
-  readonly contactNumber?: string;
-  readonly emailAddress?: string;
-  readonly physicalAddress?: string;
-  readonly titleField?: string;
-  readonly noOfInfants?: number;
-  readonly Infants?: (Infant | null)[];
-  readonly medicalrepID: string;
-  constructor(init: ModelInit<Parent>);
-  static copyOf(source: Parent, mutator: (draft: MutableModel<Parent>) => MutableModel<Parent> | void): Parent;
 }
 
 export declare class MedicalRep {
@@ -84,7 +74,6 @@ export declare class MedicalRep {
   readonly contactNumber?: string;
   readonly emailAddress?: string;
   readonly titleField?: string;
-  readonly Parents?: (Parent | null)[];
   constructor(init: ModelInit<MedicalRep>);
   static copyOf(source: MedicalRep, mutator: (draft: MutableModel<MedicalRep>) => MutableModel<MedicalRep> | void): MedicalRep;
 }

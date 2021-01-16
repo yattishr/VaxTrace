@@ -4,13 +4,12 @@ import { schema } from './schema';
 
 
 
-const { ParentTable, VaccineHistory, Vaccine, Infant, Parent, MedicalRep } = initSchema(schema);
+const { ParentTable, VaccineHistory, Vaccine, Infant, MedicalRep } = initSchema(schema);
 
 export {
   ParentTable,
   VaccineHistory,
   Vaccine,
   Infant,
-  Parent,
   MedicalRep
 };

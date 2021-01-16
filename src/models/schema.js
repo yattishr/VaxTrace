@@ -76,7 +76,7 @@ export const schema = {
                 "infantArray": {
                     "name": "infantArray",
                     "isArray": true,
-                    "type": "AWSJSON",
+                    "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
@@ -85,6 +85,20 @@ export const schema = {
                     "name": "medicalRepId",
                     "isArray": false,
                     "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "totalPoints": {
+                    "name": "totalPoints",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "totalPointsAccrued": {
+                    "name": "totalPointsAccrued",
+                    "isArray": false,
+                    "type": "Int",
                     "isRequired": false,
                     "attributes": []
                 }
@@ -339,6 +353,41 @@ export const schema = {
                         "connectionType": "HAS_MANY",
                         "associatedWith": "infantID"
                     }
+                },
+                "pointsAccrued": {
+                    "name": "pointsAccrued",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "pointsTotal": {
+                    "name": "pointsTotal",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "age": {
+                    "name": "age",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "height": {
+                    "name": "height",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "weight": {
+                    "name": "weight",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
                 }
             },
             "syncable": true,
@@ -354,135 +403,6 @@ export const schema = {
                         "name": "byParent",
                         "fields": [
                             "parentID"
-                        ]
-                    }
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "Parent": {
-            "name": "Parent",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "firstName": {
-                    "name": "firstName",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "lastName": {
-                    "name": "lastName",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "idNumber": {
-                    "name": "idNumber",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "dateOfBirtth": {
-                    "name": "dateOfBirtth",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "contactNumber": {
-                    "name": "contactNumber",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "emailAddress": {
-                    "name": "emailAddress",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "physicalAddress": {
-                    "name": "physicalAddress",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "titleField": {
-                    "name": "titleField",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "noOfInfants": {
-                    "name": "noOfInfants",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "Infants": {
-                    "name": "Infants",
-                    "isArray": true,
-                    "type": {
-                        "model": "Infant"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "parentID"
-                    }
-                },
-                "medicalrepID": {
-                    "name": "medicalrepID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                }
-            },
-            "syncable": true,
-            "pluralName": "Parents",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byMedicalRep",
-                        "fields": [
-                            "medicalrepID"
                         ]
                     }
                 },
@@ -583,20 +503,6 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
-                },
-                "Parents": {
-                    "name": "Parents",
-                    "isArray": true,
-                    "type": {
-                        "model": "Parent"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "medicalrepID"
-                    }
                 }
             },
             "syncable": true,
@@ -627,5 +533,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "d7b644c8a52e484355f4b7a260c6c5ad"
+    "version": "9facc40a2fe0e739db17cfdb3a605c3d"
 };
