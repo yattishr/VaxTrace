@@ -4,6 +4,25 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+export declare class ParentTable {
+  readonly id: string;
+  readonly firstName?: string;
+  readonly lastName?: string;
+  readonly titleField?: string;
+  readonly noOfInfants?: number;
+  readonly emailAddress?: string;
+  readonly contactNumber?: string;
+  readonly idNumber?: string;
+  readonly dateOfBirtth?: string;
+  readonly physicalAdress?: string;
+  readonly infantArray?: (string | null)[];
+  readonly medicalRepId?: string;
+  constructor(init: ModelInit<ParentTable>);
+  static copyOf(source: ParentTable, mutator: (draft: MutableModel<ParentTable>) => MutableModel<ParentTable> | void): ParentTable;
+}
+
+
+
 export declare class VaccineHistory {
   readonly id: string;
   readonly vaccineName?: string;

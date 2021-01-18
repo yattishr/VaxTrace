@@ -16,7 +16,7 @@ import ParentList from './listParent';
 export default class parent extends Component {
 
     render() {
-        
+
         return (
             <div>
                 <Container>
@@ -24,18 +24,18 @@ export default class parent extends Component {
                     <div>
                     <Row className="justify-content-md-center my-5">
                         <Col>
-                          <Link to="/parent/addparent" className="btn btn-warning">Add Parent</Link> 
+                          <Link to="/parent/addparent" className="btn btn-warning">Add Parent</Link>
                         </Col>
 
                         <Col>
-                            <Link to="/parent/listparent" className="btn btn-warning">List Parent</Link> 
-                        </Col>                            
+                            <Link to="/parent/listparent" className="btn btn-warning">List Parent</Link>
+                        </Col>
 
                         <Col>
-                            <Link to="/" className="btn btn-warning">Back</Link> 
-                        </Col>                        
+                            <Link to="/" className="btn btn-warning">Back</Link>
+                        </Col>
                     </Row>
-                    </div>                    
+                    </div>
                 </Container>
             </div>
         )

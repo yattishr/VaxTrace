@@ -14,6 +14,7 @@ import stetoscopeLogo from '../stethoscope.png';
 import babyLogo from '../baby.png';
 import parentsbabyLogo from '../parents_baby.png';
 
+
 export default class menuPage extends Component {
     render() {
         return (
@@ -29,10 +30,10 @@ export default class menuPage extends Component {
                             <Card.Body>
                                 <Card.Text>
                                 <h3>Parents</h3>
-                                </Card.Text>                                
+                                </Card.Text>
                             </Card.Body>
-                            <Link to="/parent" className="btn btn-primary">Add Parent</Link> 
-                            </Card>                        
+                            <Link to="/parent" className="btn btn-primary">Add Parent</Link>
+                            </Card>
                         </Col>
 
                         <Col>
@@ -41,11 +42,11 @@ export default class menuPage extends Component {
                             <Card.Body>
                                 <Card.Text>
                                 <h3>Infants</h3>
-                                </Card.Text>                                
+                                </Card.Text>
                             </Card.Body>
-                            <Link to="/" className="btn btn-primary">Vaccinate Infant</Link>
-                            </Card>                        
-                        </Col>                  
+                            <Link to="/infant" className="btn btn-primary">Vaccinate Infant</Link>
+                            </Card>
+                        </Col>
 
                         <Col>
                             <Card border="primary" style={{ width: '18rem' }}>
@@ -55,10 +56,10 @@ export default class menuPage extends Component {
                                     <h3>History</h3>
                                 </Card.Text>
                             </Card.Body>
-                            <Link to="/" className="btn btn-primary">Vaccinate Log</Link>
-                            </Card>                        
-                        </Col>                        
-                        
+                            <Link to="/vaccine" className="btn btn-primary">Vaccinate Log</Link>
+                            </Card>
+                        </Col>
+
                     </Row>
                 </Container>
             </div>

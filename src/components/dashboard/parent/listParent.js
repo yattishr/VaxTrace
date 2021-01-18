@@ -10,6 +10,9 @@ import Col from 'react-bootstrap/Col';
 // import AWS components
 import { API, graphqlOperation } from 'aws-amplify';
 
+//import GraphQL
+//import { listParents} from './graphql/queries'
+
 
 const listParentRecords = `query MyQuery {
     listParents {
@@ -23,7 +26,7 @@ const listParentRecords = `query MyQuery {
     }
   }`;
 
-  export const listParents = /* GraphQL */ `
+  export const listParents = `
   query ListParents(
     $filter: ModelParentFilterInput
     $limit: Int
@@ -52,17 +55,17 @@ const listParentRecords = `query MyQuery {
 
 
   const addParent = `mutation addNewParent {
-    createParent(input: 
+    createParent(input:
       {
-        medicalrepID: "4", 
-        firstName: "micket", 
-        lastName: "mouse", 
-        noOfInfants: 1, 
-        emailAddress: "mickeymouse@gmail.com", 
-        contactNumber: "0742532694", 
-        titleField: "Mr", 
-        dateOfBirtth: "18-Aug-1982", 
-        idNumber: "8007155160080", 
+        medicalrepID: "4",
+        firstName: "micket",
+        lastName: "mouse",
+        noOfInfants: 1,
+        emailAddress: "mickeymouse@gmail.com",
+        contactNumber: "0742532694",
+        titleField: "Mr",
+        dateOfBirtth: "18-Aug-1982",
+        idNumber: "8007155160080",
         physicalAddress: "14 Valentines Road, Disneyland"
       }
     ) {
@@ -73,7 +76,10 @@ const listParentRecords = `query MyQuery {
 
 class ParentList extends Component {
 
-    state = { parents: [] }
+    state = {
+       parents: []
+     }
+
 
     listQuery = async() => {
         try {
@@ -84,19 +90,10 @@ class ParentList extends Component {
         } catch(err) {
             <h1>There was an error fetching the data.</h1>
             console.log('error: ', err)
-        }        
+        }
     }
 
-    addQuery = async () => {
-        const todoDetails = {
-          name: 'Party tonight!',
-          description: 'Amplify CLI rocks!'
-        };
-      const newParentRecord = await API.graphql(graphqlOperation(addParent));
-      console.log(JSON.stringify(newParentRecord));
-      };
-
-
+    
     // list our current parents when the componentloads
     async componentDidMount()  {
       this.listQuery();
@@ -107,7 +104,7 @@ class ParentList extends Component {
             <Fragment>
                 <Container>
                     {
-                        this.state.parents.map((parent, i) => {                            
+                        this.state.parents.map((parent, i) => {
                             return(
                                 <Container>
                                     <div>
@@ -122,7 +119,14 @@ class ParentList extends Component {
                                             <li className="list-group-item">Number of Infants: {parent.noOfInfants}</li>
                                         </ul>
                                         <hr />
-                                        <Link to="/" className="btn btn-warning">Add Infant</Link>
+                                        <Row>
+                                        <Col>
+                                        <Link to="/infant/addInfant" className="btn btn-warning">Add Infant</Link>
+                                        </Col>
+                                        <Col>
+                                        <Link to="/" className="btn btn-warning">Back</Link>
+                                        </Col>
+                                        </Row>
                                     </div>
                                 </Container>
                             )
@@ -130,7 +134,7 @@ class ParentList extends Component {
                     }
 
                 </Container>
-            </Fragment> 
+            </Fragment>
         )
     }
 }

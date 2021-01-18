@@ -13,6 +13,25 @@
     },
     "categories": {
       "auth": {
+        "VaxTrace": {},
+        "userPoolGroups": {}
+      }
+    }
+  },
+  "local": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vaxtrace-local-154101-authRole",
+      "UnauthRoleArn": "arn:aws:iam::312215637679:role/amplify-vaxtrace-local-154101-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::312215637679:role/amplify-vaxtrace-local-154101-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-vaxtrace-local-154101-deployment",
+      "UnauthRoleName": "amplify-vaxtrace-local-154101-unauthRole",
+      "StackName": "amplify-vaxtrace-local-154101",
+      "StackId": "arn:aws:cloudformation:us-east-2:312215637679:stack/amplify-vaxtrace-local-154101/ac938220-50d0-11eb-b5d6-021c9b75c73e",
+      "AmplifyAppId": "d2bb6yb622um2b"
+    },
+    "categories": {
+      "auth": {
         "VaxTrace": {}
       }
     }

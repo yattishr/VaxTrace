@@ -13,6 +13,9 @@ export const createVaccineHistory = /* GraphQL */ `
       medicalRepName
       vaccineFlag
       vaccineID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -30,6 +33,9 @@ export const updateVaccineHistory = /* GraphQL */ `
       medicalRepName
       vaccineFlag
       vaccineID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -47,6 +53,9 @@ export const deleteVaccineHistory = /* GraphQL */ `
       medicalRepName
       vaccineFlag
       vaccineID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -63,10 +72,14 @@ export const createVaccine = /* GraphQL */ `
       vaccineDosage
       vaccineFrequecy
       infantID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       VaccineHistories {
         nextToken
+        startedAt
       }
     }
   }
@@ -82,10 +95,14 @@ export const updateVaccine = /* GraphQL */ `
       vaccineDosage
       vaccineFrequecy
       infantID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       VaccineHistories {
         nextToken
+        startedAt
       }
     }
   }
@@ -101,10 +118,14 @@ export const deleteVaccine = /* GraphQL */ `
       vaccineDosage
       vaccineFrequecy
       infantID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       VaccineHistories {
         nextToken
+        startedAt
       }
     }
   }
@@ -121,10 +142,14 @@ export const createInfant = /* GraphQL */ `
       dateOfBirth
       gender
       parentID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Vaccines {
         nextToken
+        startedAt
       }
     }
   }
@@ -141,10 +166,14 @@ export const updateInfant = /* GraphQL */ `
       dateOfBirth
       gender
       parentID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Vaccines {
         nextToken
+        startedAt
       }
     }
   }
@@ -161,10 +190,14 @@ export const deleteInfant = /* GraphQL */ `
       dateOfBirth
       gender
       parentID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Vaccines {
         nextToken
+        startedAt
       }
     }
   }
@@ -186,10 +219,14 @@ export const createParent = /* GraphQL */ `
       titleField
       noOfInfants
       medicalrepID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Infants {
         nextToken
+        startedAt
       }
     }
   }
@@ -211,10 +248,14 @@ export const updateParent = /* GraphQL */ `
       titleField
       noOfInfants
       medicalrepID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Infants {
         nextToken
+        startedAt
       }
     }
   }
@@ -236,10 +277,14 @@ export const deleteParent = /* GraphQL */ `
       titleField
       noOfInfants
       medicalrepID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Infants {
         nextToken
+        startedAt
       }
     }
   }
@@ -261,10 +306,14 @@ export const createMedicalRep = /* GraphQL */ `
       contactNumber
       emailAddress
       titleField
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Parents {
         nextToken
+        startedAt
       }
     }
   }
@@ -286,10 +335,14 @@ export const updateMedicalRep = /* GraphQL */ `
       contactNumber
       emailAddress
       titleField
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Parents {
         nextToken
+        startedAt
       }
     }
   }
@@ -311,10 +364,14 @@ export const deleteMedicalRep = /* GraphQL */ `
       contactNumber
       emailAddress
       titleField
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Parents {
         nextToken
+        startedAt
       }
     }
   }

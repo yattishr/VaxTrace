@@ -1,0 +1,115 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vaxtrace-staging-92311-authRole",
+      "UnauthRoleArn": "arn:aws:iam::312215637679:role/amplify-vaxtrace-staging-92311-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::312215637679:role/amplify-vaxtrace-staging-92311-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-vaxtrace-staging-92311-deployment",
+      "UnauthRoleName": "amplify-vaxtrace-staging-92311-unauthRole",
+      "StackName": "amplify-vaxtrace-staging-92311",
+      "StackId": "arn:aws:cloudformation:us-east-1:312215637679:stack/amplify-vaxtrace-staging-92311/a32fa4d0-4a80-11eb-89f8-0e2470ba0d5b",
+      "AmplifyAppId": "d2xxaq5rry1a9y"
+    }
+  },
+  "auth": {
+    "VaxTrace": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "VaxTracePostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
+      "customAuth": false,
+      "output": {
+        "AppClientSecret": "11t83lvh4eaftnaru8u496ael6ndkbifs5rm9v78nj2u9mo5sr0l",
+        "UserPoolId": "us-east-1_7lo3XxD9w",
+        "AppClientIDWeb": "4v281oppu806eoq9qm2v07sf",
+        "AppClientID": "6q59l4n29jbj4g4hm366qktan",
+        "UserPoolName": "VaxTrace"
+      },
+      "lastPushTimeStamp": "2021-01-09T16:24:53.473Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vaxtrace-staging-92311-deployment/amplify-cfn-templates/auth/VaxTrace-cloudformation-template.yml",
+        "logicalId": "authVaxTrace"
+      }
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "VaxTrace",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID"
+          ]
+        }
+      ],
+      "output": {},
+      "lastPushTimeStamp": "2021-01-09T16:24:53.477Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vaxtrace-staging-92311-deployment/amplify-cfn-templates/auth/template.json",
+        "logicalId": "authuserPoolGroups"
+      }
+    }
+  },
+  "api": {
+    "VaxTrace": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "vxmxvljlpjdphluvzoszlqsdea",
+        "GraphQLAPIEndpointOutput": "https://rg23ohroibctvdtkbetile2xvi.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-kgtxmn7a45bj7dkjixr7jy3dfi"
+      },
+      "lastPushTimeStamp": "2021-01-09T16:24:53.487Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vaxtrace-staging-92311-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiVaxTrace"
+      },
+      "lastPushDirHash": "yJ4EYBcqXJR/ge8FehplHvw5ltU="
+    }
+  },
+  "function": {
+    "VaxTracePostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:312215637679:function:VaxTracePostConfirmation-staging",
+        "Name": "VaxTracePostConfirmation-staging",
+        "LambdaExecutionRole": "VaxTracePostConfirmation-staging"
+      },
+      "lastPushTimeStamp": "2021-01-09T16:24:53.481Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vaxtrace-staging-92311-deployment/amplify-cfn-templates/function/VaxTracePostConfirmation-cloudformation-template.json",
+        "logicalId": "functionVaxTracePostConfirmation"
+      }
+    }
+  }
+}

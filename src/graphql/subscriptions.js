@@ -10,6 +10,9 @@ export const onCreateVaccineHistory = /* GraphQL */ `
       medicalRepName
       vaccineFlag
       vaccineID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -24,6 +27,9 @@ export const onUpdateVaccineHistory = /* GraphQL */ `
       medicalRepName
       vaccineFlag
       vaccineID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -38,6 +44,9 @@ export const onDeleteVaccineHistory = /* GraphQL */ `
       medicalRepName
       vaccineFlag
       vaccineID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -51,10 +60,14 @@ export const onCreateVaccine = /* GraphQL */ `
       vaccineDosage
       vaccineFrequecy
       infantID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       VaccineHistories {
         nextToken
+        startedAt
       }
     }
   }
@@ -67,10 +80,14 @@ export const onUpdateVaccine = /* GraphQL */ `
       vaccineDosage
       vaccineFrequecy
       infantID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       VaccineHistories {
         nextToken
+        startedAt
       }
     }
   }
@@ -83,10 +100,14 @@ export const onDeleteVaccine = /* GraphQL */ `
       vaccineDosage
       vaccineFrequecy
       infantID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       VaccineHistories {
         nextToken
+        startedAt
       }
     }
   }
@@ -100,10 +121,14 @@ export const onCreateInfant = /* GraphQL */ `
       dateOfBirth
       gender
       parentID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Vaccines {
         nextToken
+        startedAt
       }
     }
   }
@@ -117,10 +142,14 @@ export const onUpdateInfant = /* GraphQL */ `
       dateOfBirth
       gender
       parentID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Vaccines {
         nextToken
+        startedAt
       }
     }
   }
@@ -134,10 +163,14 @@ export const onDeleteInfant = /* GraphQL */ `
       dateOfBirth
       gender
       parentID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Vaccines {
         nextToken
+        startedAt
       }
     }
   }
@@ -156,10 +189,14 @@ export const onCreateParent = /* GraphQL */ `
       titleField
       noOfInfants
       medicalrepID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Infants {
         nextToken
+        startedAt
       }
     }
   }
@@ -178,10 +215,14 @@ export const onUpdateParent = /* GraphQL */ `
       titleField
       noOfInfants
       medicalrepID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Infants {
         nextToken
+        startedAt
       }
     }
   }
@@ -200,10 +241,14 @@ export const onDeleteParent = /* GraphQL */ `
       titleField
       noOfInfants
       medicalrepID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Infants {
         nextToken
+        startedAt
       }
     }
   }
@@ -222,10 +267,14 @@ export const onCreateMedicalRep = /* GraphQL */ `
       contactNumber
       emailAddress
       titleField
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Parents {
         nextToken
+        startedAt
       }
     }
   }
@@ -244,10 +293,14 @@ export const onUpdateMedicalRep = /* GraphQL */ `
       contactNumber
       emailAddress
       titleField
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Parents {
         nextToken
+        startedAt
       }
     }
   }
@@ -266,10 +319,14 @@ export const onDeleteMedicalRep = /* GraphQL */ `
       contactNumber
       emailAddress
       titleField
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Parents {
         nextToken
+        startedAt
       }
     }
   }
